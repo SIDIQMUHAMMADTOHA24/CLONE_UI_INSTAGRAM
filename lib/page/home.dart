@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:instagram/data/data.dart';
-import 'package:instagram/model/model.dart';
+import '../data/data.dart';
+import '../servis/servis.dart';
 import 'chat_pages.dart';
 import 'widget/buble_post.dart';
 import 'widget/user_post.dart';
 
 class AppBartest extends StatefulWidget {
-  AppBartest({super.key});
+  const AppBartest({super.key});
 
   @override
   State<AppBartest> createState() => _AppBartestState();
 }
 
 class _AppBartestState extends State<AppBartest> {
-  List<Hit> hit = [];
+  final _controller = PageController();
+
+  Welcome? welcome;
+
+  getDataSkuy() async {
+    welcome = await User().getData();
+    setState(() {});
+  }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    User().getData().then((value) {
-      hit = value;
-      setState(() {});
-    });
+    getDataSkuy();
   }
-
-  final _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,12 +58,44 @@ class _AppBartestState extends State<AppBartest> {
               )
             ],
           ),
-          body: SingleChildScrollView(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [BubleStroy(), const Divider(), const UserPost()]),
+          body: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: (welcome != null)
+                    ? SizedBox(height: 80, child: BubleStroy(welcome: welcome!))
+                    : SizedBox(
+                        height: 80,
+                        child: Center(
+                          child: Container(),
+                        )),
+              ),
+              UserPost(welcome: welcome!)
+            ],
           )),
       Chat()
     ]);
   }
 }
+/* 
+Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            //buble post
+            if (welcome != null)
+              SizedBox(height: 100, child: BubleStroy(welcome: welcome!))
+            else
+               SizedBox(
+                  height: 80,
+                  child: Center(
+                    child: Container(),
+                  )),
+            const Divider(),
+            //user post
+            if (welcome != null)
+              Expanded(
+                child: UserPost(
+                  welcome: welcome!,
+                ),
+              )
+            else
+              Center(child: Container())
+          ])
+ */

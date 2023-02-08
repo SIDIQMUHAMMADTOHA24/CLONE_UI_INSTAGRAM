@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:instagram/data/data.dart';
+
+import '../data/data.dart';
+
 
 class User {
   String url =

@@ -46,7 +46,7 @@ class Hit {
 
   final int id;
   final String pageUrl;
-  final Type type;
+  final String type;
   final String tags;
   final String previewUrl;
   final int previewWidth;
