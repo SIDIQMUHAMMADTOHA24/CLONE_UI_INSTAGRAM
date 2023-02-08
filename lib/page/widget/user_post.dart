@@ -8,34 +8,35 @@ class UserPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList(
-        delegate: SliverChildBuilderDelegate(childCount: 19, (context, index) {
+        delegate: SliverChildBuilderDelegate(childCount: welcome.hits!.length,
+            (context, index) {
       var data = welcome.hits![index];
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Divider(),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
-            child: Row(
-              children: [
-                const CircleAvatar(
-                  radius: 15,
-                  backgroundColor: Colors.grey,
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  data.user,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w500, fontSize: 13),
-                ),
-                const Spacer(),
-                const Icon(Icons.more_vert)
-              ],
+      
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+              child: Row(
+                children: [
+                   CircleAvatar(
+                    radius: 15,
+                    backgroundImage: NetworkImage(data.userImageUrl),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    data.user,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500, fontSize: 13),
+                  ),
+                  const Spacer(),
+                  const Icon(Icons.more_vert)
+                ],
+              ),
             ),
-          ),
           SizedBox(
               width: 400,
               height: 300,
@@ -95,6 +96,9 @@ class UserPost extends StatelessWidget {
                 Text(
                   'Lihat semua ${data.comments} comentar',
                   style: TextStyle(fontSize: 12, color: Colors.grey),
+                ),
+                SizedBox(
+                  height: 5,
                 )
               ],
             ),

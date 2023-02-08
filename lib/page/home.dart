@@ -58,20 +58,17 @@ class _AppBartestState extends State<AppBartest> {
               )
             ],
           ),
-          body: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: (welcome != null)
-                    ? SizedBox(height: 80, child: BubleStroy(welcome: welcome!))
-                    : SizedBox(
-                        height: 80,
-                        child: Center(
-                          child: Container(),
-                        )),
-              ),
-              UserPost(welcome: welcome!)
-            ],
-          )),
+          body: (welcome != null)
+              ? CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                        child: SizedBox(
+                            height: 80, child: BubleStroy(welcome: welcome!))),
+                    SliverList(delegate: SliverChildListDelegate([Divider()])),
+                    UserPost(welcome: welcome!)
+                  ],
+                )
+              : Container()),
       Chat()
     ]);
   }
