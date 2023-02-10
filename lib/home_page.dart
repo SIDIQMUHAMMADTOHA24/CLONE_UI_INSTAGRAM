@@ -72,10 +72,15 @@ class _HomePageState extends State<HomePage> {
                       : SvgPicture.asset('asset/icon/shop.svg'),
                   label: ''),
               BottomNavigationBarItem(
-                  icon: CircleAvatar(
-                    radius: 16,
-                    backgroundColor: Colors.grey.withOpacity(0.3),
-                  ),
+                  icon: Container(
+                      height: 35,
+                      width: 35,
+                      decoration: BoxDecoration(
+                          border: (index == 4)
+                              ? Border.all(width: 2)
+                              : Border.all(color: Colors.white),
+                          color: Colors.grey.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(50))),
                   label: ''),
             ]),
       ),

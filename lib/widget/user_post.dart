@@ -15,28 +15,29 @@ class UserPost extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-      
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
-              child: Row(
-                children: [
-                   CircleAvatar(
-                    radius: 15,
-                    backgroundImage: NetworkImage(data.userImageUrl),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    data.user,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w500, fontSize: 13),
-                  ),
-                  const Spacer(),
-                  const Icon(Icons.more_vert)
-                ],
-              ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 15,
+                  backgroundImage: NetworkImage((index == 15)
+                      ? 'https://avatars.githubusercontent.com/u/119821427?v=4'
+                      : data.userImageUrl),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  data.user,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w500, fontSize: 13),
+                ),
+                const Spacer(),
+                const Icon(Icons.more_vert)
+              ],
             ),
+          ),
           SizedBox(
               width: 400,
               height: 300,

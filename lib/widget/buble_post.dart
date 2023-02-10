@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../data/data.dart';
+import '../data/data.dart';
 
 // ignore: must_be_immutable
 class BubleStroy extends StatelessWidget {
@@ -83,24 +83,26 @@ class BubleStroy extends StatelessWidget {
                             ),
                           ),
                         ),
-                        if (index == 1 || index == 2 )
+                        if (index == 1 || index == 2)
                           Positioned(
                             bottom: 0,
-                            left: 15,
+                            left: 17,
                             child: Container(
-                              height: 18,
+                              height: 20,
                               width: 30,
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.white,width: 2),
+                                  border:
+                                      Border.all(color: Colors.white, width: 2),
                                   color: Colors.red,
                                   borderRadius: BorderRadius.circular(5)),
-                              child: const Text(
-                                'Live',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                    fontSize: 10),
+                              child: const Center(
+                                child: Text(
+                                  'Live',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                      fontSize: 10),
+                                ),
                               ),
                             ),
                           )

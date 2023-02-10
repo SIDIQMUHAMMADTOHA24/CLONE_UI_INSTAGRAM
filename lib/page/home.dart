@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../data/data.dart';
 import '../servis/servis.dart';
 import 'chat_pages.dart';
-import 'widget/buble_post.dart';
-import 'widget/user_post.dart';
+import '../widget/buble_post.dart';
+import '../widget/user_post.dart';
 
 class AppBartest extends StatefulWidget {
   const AppBartest({super.key});
