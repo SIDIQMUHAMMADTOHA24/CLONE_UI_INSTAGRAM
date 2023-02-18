@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'package:instagram/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         primarySwatch: Colors.grey,
       ),
-      home: HomePage(),
+      home: Home(),
     );
   }
 }

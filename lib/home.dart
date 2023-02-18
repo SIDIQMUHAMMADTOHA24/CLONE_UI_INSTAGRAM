@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'page/home.dart';
+import 'package:instagram/page/search_page.dart';
+import 'page/home_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeState extends State<Home> {
   int index = 0;
   void _setIndex(value) {
     index = value;
     setState(() {});
   }
 
+  
+
   final List<Widget> _list = [
     AppBartest(),
-    const Center(
-      child: Text('Search'),
-    ),
+    SearchPage(),
     const Center(
       child: Text('Rells'),
     ),

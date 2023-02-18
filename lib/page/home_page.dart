@@ -30,6 +30,13 @@ class _AppBartestState extends State<AppBartest> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return PageView(controller: _controller, children: [
       Scaffold(
@@ -73,26 +80,3 @@ class _AppBartestState extends State<AppBartest> {
     ]);
   }
 }
-/* 
-Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            //buble post
-            if (welcome != null)
-              SizedBox(height: 100, child: BubleStroy(welcome: welcome!))
-            else
-               SizedBox(
-                  height: 80,
-                  child: Center(
-                    child: Container(),
-                  )),
-            const Divider(),
-            //user post
-            if (welcome != null)
-              Expanded(
-                child: UserPost(
-                  welcome: welcome!,
-                ),
-              )
-            else
-              Center(child: Container())
-          ])
- */
